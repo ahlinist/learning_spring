@@ -6,8 +6,7 @@ import soundsystem.cd.CompactDisc;
 import soundsystem.cd.qualifier.Metal;
 
 @Component
-//@Metal
-@Qualifier("theBlackWaltz")
+@Metal
 public class TheBlackWaltz implements CompactDisc{
     private String title = "The Black Waltz";
     private String artist = "Kalmah";

@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 import soundsystem.MediaPlayer;
 import soundsystem.cd.CompactDisc;
 import soundsystem.cd.qualifier.Metal;
+import soundsystem.cd.qualifier.Rock;
 
 @Component
 public class CDPlayer implements MediaPlayer {
     private CompactDisc cd;
 
     @Autowired
-    //@Metal
-    @Qualifier("theBlackWaltz")
+    @Rock
     public void setCd(CompactDisc cd) {
         this.cd = cd;
     }

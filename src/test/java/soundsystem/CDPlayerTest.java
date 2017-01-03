@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.cd.CompactDisc;
+import soundsystem.cd.qualifier.Metal;
+import soundsystem.cd.qualifier.Rock;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= CDPlayerConfig.class)
@@ -22,6 +24,7 @@ public class CDPlayerTest {
     private MediaPlayer player;
 
     @Autowired
+    @Metal
     private CompactDisc cd;
 
     @Test
