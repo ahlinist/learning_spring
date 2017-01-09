@@ -12,7 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.cd.CompactDisc;
 import soundsystem.cd.qualifier.Metal;
-import soundsystem.cd.qualifier.Rock;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= CDPlayerConfig.class)
@@ -35,6 +34,8 @@ public class CDPlayerTest {
     @Test
     public void play() {
         player.play();
-        assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles\n", log.getLog());
+        assertTrue(log.getLog().contains("The melomaniac turned the device on."));
+        assertTrue(log.getLog().contains("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles"));
+        assertTrue(log.getLog().contains("The melomaniac enjoyed the music."));
     }
 }
