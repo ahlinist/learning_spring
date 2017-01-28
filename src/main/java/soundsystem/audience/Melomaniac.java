@@ -1,9 +1,7 @@
 package soundsystem.audience;
 
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -13,13 +11,10 @@ public class Melomaniac {
     @Pointcut("execution(** soundsystem.MediaPlayer.play(..))")
     public void whenPlaying() {}
 
-    @Before("whenPlaying()")
-    public void turnOnDevice() {
+    @Around("whenPlaying()")
+    private void listenToCDPlayer(ProceedingJoinPoint jp)  throws Throwable {
         System.out.println("The melomaniac turned the device on.");
-    }
-
-    @AfterReturning("whenPlaying()")
-    public void enjoyMusic() {
+        jp.proceed();
         System.out.println("The melomaniac enjoyed the music.");
     }
 }
